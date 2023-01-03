@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.98554738.css",
+    "main.js": "/static/js/main.a1084825.js",
+    "static/media/new.jpg": "/static/media/new.450759467f221681565f.jpg",
+    "static/media/logo.png": "/static/media/logo.eb50a76a796e338e47c6.png",
+    "static/media/okRegistro.jpg": "/static/media/okRegistro.ee80e19835211aa85ed0.jpg",
+    "static/media/404.jpg": "/static/media/404.1ebf003e4f58f0bd3bc0.jpg",
+    "index.html": "/index.html",
+    "main.98554738.css.map": "/static/css/main.98554738.css.map",
+    "main.a1084825.js.map": "/static/js/main.a1084825.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98554738.css",
+    "static/js/main.a1084825.js"
+  ]
+}
