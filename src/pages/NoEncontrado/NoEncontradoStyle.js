@@ -29,7 +29,7 @@ export const SIimg = styled.div`
 
 export const SFform = styled.form`
   width: 100%;
-  background: ${({ theme }) => theme.bg2};
+  background-color:${({ theme }) => theme.bg};
   border-radius: ${v.borderRadius};
   display: flex;
   flex-direction: column;
@@ -41,4 +41,5 @@ export const SFform = styled.form`
 export const SFoormTitle = styled.div`
   font-size: 40px;
   font-weight: 600;
+  color:${({ theme }) => theme.text};
 `;

@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {SLlabel, SLSelect} from "./ListasStyle";
-import { useState } from "react";
 
 
-
-const useListas = (etiqueta, opciones) => {
+const useSelectListas = (etiqueta, opciones) => {
 
     const [state, setState] = useState('')
 
@@ -13,17 +11,18 @@ const useListas = (etiqueta, opciones) => {
         <SLlabel>
         <label>{etiqueta}</label>
             <SLSelect
-              value = {state}
-              onChange={e => setState (e.target.value)}
+            value = {state}
+            onChange={e => setState(e.target.value)}
             > 
                 <option value="">Seleccione</option>
                 {opciones.map( opcion => (
                     <option
-                       key = {opcion.id}
-                       value = {opcion.id}
-                    >{opcion.nombre}</option>
+                        key = {opcion.id}
+                        value = {opcion.id}
+                        >{opcion.nombre}
+                    </option>
                 ))}
-                SetValue(value);
+                setValue(value);
                 console.log(value);
             </SLSelect>
         </SLlabel>
@@ -35,4 +34,4 @@ const useListas = (etiqueta, opciones) => {
 
 }
 
-export default useListas
+export default useSelectListas

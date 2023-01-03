@@ -39,6 +39,7 @@ export const SFform = styled.form`
 export const SFoormTitle = styled.div`
   font-size: 2rem;
   font-weight: 600;
+  color:${({ theme }) => theme.text};
 `;
 
 export const SBbutton = styled.button`

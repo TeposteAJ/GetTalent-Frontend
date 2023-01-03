@@ -1,0 +1,8 @@
+div#nosotras {
+    background-image:
+    url('https://cdn.pixabay.com/photo/2022/08/04/03/32/team-7363718_960_720.png');
+    min-width: 1500px;
+    min-height: 650px;
+    background-size: 1150px;
+    background-repeat:no-repeat;
+}

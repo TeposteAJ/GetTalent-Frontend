@@ -7,7 +7,7 @@ export const SFixedContainer = styled.div`
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-columns: 1fr minmax(320px, 40%);
+  grid-template-columns: 1fr minmax(1000px, 100%);
   @media screen and (max-width: ${sizeQuery.Tablet}) {
     /* Cuando la vista sea menor que 768 todo se apila en columnas */
     grid-template-columns: 1fr;
@@ -39,11 +39,12 @@ export const SFform = styled.form`
 export const SFoormTitle = styled.div`
   font-size: 2rem;
   font-weight: 600;
+  color:${({ theme }) => theme.text};
 `;
 
 export const SBbutton = styled.button`
   ${btnReset};
-  width: 50%;
+  width: 20%;
   background: ${({ theme }) => theme.bgSecondary};
   color: ${({ theme }) => theme.textSecondary};
   padding: ${v.smSpacing};

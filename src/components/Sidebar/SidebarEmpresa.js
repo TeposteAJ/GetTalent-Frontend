@@ -32,7 +32,7 @@ import {
     AiOutlineSolution 
 } from "react-icons/ai";
 
-const Sidebar = () => {
+const SidebarE = () => {
     const searchRef = useRef(null);
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -114,7 +114,7 @@ const linksArray = [
     {
         label: "HomePage",
         icon: <AiOutlineHome />,
-        to: "configuration",
+        to: "home",
         notification: 0,
     },
     {
@@ -124,23 +124,24 @@ const linksArray = [
         notification: 0,
     },
     {
-        label: "Mis Vacantes",
-        icon: <IoFileTrayStackedSharp  />,
-        to: "empresa/vacantes",
-        notification: 0,
-    },
-    {
         label: "Nueva Vacante",
         icon: <AiOutlineForm  />,
         to: "registervac",
         notification: 0,
     },
     {
-            label: "Aplicantes",
-            icon: < AiOutlineSolution  />,
-            to: "aplicantes",
-            notification: 0,
-    }
+        label: "Mis Vacantes",
+        icon: <IoFileTrayStackedSharp  />,
+        to: "vacantes",
+        notification: 0,
+    },
+
+    // {
+    //     label: "Aplicantes",
+    //     icon: < AiOutlineSolution  />,
+    //     to: "aplicantes",
+    //     notification: 0,
+    // }
 ];
 
 const secondaryLinksArray = [
@@ -156,4 +157,4 @@ const secondaryLinksArray = [
     },
 ];
 
-export default Sidebar;
+export default SidebarE;

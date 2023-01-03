@@ -1,0 +1,18 @@
+
+div#container {
+    background-image:
+    url('https://cdn.pixabay.com/photo/2022/07/30/00/25/valentines-7352845_960_720.png');
+    
+    background-size: 1150px;
+    background-repeat:no-repeat;
+}
+
+
+div#imagenfondo {
+    background-image:
+    url('https://cdn.pixabay.com/photo/2022/08/01/22/02/home-7359070_960_720.png');
+    min-width: 1500px;
+    min-height: 500px;
+    background-size: 1150px;
+    background-repeat:no-repeat;
+}

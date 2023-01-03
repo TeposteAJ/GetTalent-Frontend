@@ -8,7 +8,6 @@ export const SForm = styled.form`
   background: ${({ theme }) => theme.bg2};
   border-radius: ${v.borderRadius};
   padding: ${v.mdSpacing};
-  padding: ${v.mdSpacing};
   border: solid 1px red;
   display: flex;
   flex-direction: column;

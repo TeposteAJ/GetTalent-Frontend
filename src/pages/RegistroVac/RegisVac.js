@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { SLayout, SMain } from "../../components/Layout/styles";
-import { SFform, SFoormTitle, SBbutton, Grid2Layout, Grid3Layout,
-  GridLayout,SDdiv,CajaError,CajaExito} from "./RegisVacStyle";
+import { SFform, SFoormTitle, SBbutton, Grid2Layout, Grid3Layout,Ha,
+  GridLayout,SDdiv,CajaError,CajaExito, ContenedorGral} from "./RegisVacStyle";
 import TextArea from "../../components/Atoms/TextArea/TextArea";
 import InputText from "../../components/Atoms/InputText/InputText";
 import useListas from "../../components/Atoms/Listas/Listas";
@@ -28,8 +28,8 @@ const experiencia_list = [
   {id: "Becario", nombre: "Becario"},
   {id: "Primer Empleo", nombre: "Primer Empleo"},
   {id: "Experiencia Media", nombre: "Experiencia Media"},
-  {id: "Mucha experiencia", nombre: "Mucha Experiencia"},
-  {id: "Cargos ejecutivos", nombre: "Cargos Ejecutivos"}
+  {id: "Mucha experiencia", nombre: "Mucha experiencia"},
+  {id: "Cargos ejecutivos", nombre: "Cargos ejecutivos"}
 ];
 
 const estado_list = [
@@ -66,6 +66,8 @@ const estado_list = [
   {id: "Yucatán", nombre: "Yucatán"},
   {id: "Zacatecas", nombre: "Zacatecas"},
       ]
+
+      
 export const RegistroVacante = ({ children }) => {
      // Inicializar el estado del formulario en blanco
     const [success, setSuccess] = React.useState(false);
@@ -99,8 +101,8 @@ export const RegistroVacante = ({ children }) => {
     
  
     const tipotrabajo_list = [
-      { id: "Tiempo completo", nombre: "Tiempo completo" },
-      { id: "Medio tiempo", nombre: "Medio tiempo" },
+      { id: "Tiempo Completo", nombre: "Tiempo Completo" },
+      { id: "Medio Tiempo", nombre: "Medio Tiempo" },
       { id: "Proyecto", nombre:"Proyecto"},
       { id: "Sin especificar", nombre:"Sin especificar"}
     ];
@@ -187,6 +189,7 @@ const onChangeHandler = (e) => {
         <SMain>{children}</SMain>   
           
     <SFform onSubmit={onSubmitHandler}>
+    <ContenedorGral>
     <SFoormTitle> VACANTE </SFoormTitle>
     {/* {error && <Toast color="error">{error}</Toast>} */}
     <Grid2Layout>
@@ -246,7 +249,7 @@ const onChangeHandler = (e) => {
     id="pregunta2"
     type="text"
     name="pregunta2"
-    placeholder="¿Qué es importante conocer de tus aspirantes?"
+    placeholder="¿Qué importa conocer de tus aspirantes?"
     value={formData.pregunta2}
     callback={(e) => {
       onChangeHandler(e);
@@ -267,6 +270,18 @@ const onChangeHandler = (e) => {
     </Grid3Layout>
     <Grid2Layout>
     <TextArea
+    label="Descripción: *"
+    id="descripcion"
+    type="text"
+    name="descripcion"
+    placeholder="Cuentanos sobre las tareas que se realizan  en este puesto..."
+    value={formData.descripcion}
+    callback={(e) => {
+      onChangeHandler(e);
+    }}
+    isRequired={true}
+    /> 
+    <TextArea
     label="Requisitos: *"
     id="requisitos"
     type="text"
@@ -278,18 +293,7 @@ const onChangeHandler = (e) => {
     }}
     isRequired={true}
     />
-    <TextArea
-    label="Descripción: *"
-    id="descripcion"
-    type="text"
-    name="descripcion"
-    placeholder="Cuentanos brevemente sobre la historia de tu compañía..."
-    value={formData.descripcion}
-    callback={(e) => {
-      onChangeHandler(e);
-    }}
-    isRequired={true}
-    /> 
+    
     </Grid2Layout> 
    
     {loading ? (
@@ -299,9 +303,7 @@ const onChangeHandler = (e) => {
                 )}
   
         <GridLayout>
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+             <Ha> *Campos obligatorios.</Ha>
               </GridLayout>
               {success &&
                  <CajaExito>
@@ -314,6 +316,7 @@ const onChangeHandler = (e) => {
                     <h5>Problema del Servidor: información no guardada.</h5>
                  </CajaError>
                 } 
+    </ContenedorGral>
     </SFform>
     
     </SLayout>

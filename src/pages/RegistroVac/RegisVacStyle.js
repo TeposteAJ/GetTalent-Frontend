@@ -6,6 +6,7 @@ export const SFoormTitle = styled.div`
   font-size: 25px;
   font-weight: 600;
   display: block;
+  color: ${({ theme }) => theme.text};
 `;
 export const GridLayout = styled.div`
   display: grid;
@@ -15,18 +16,20 @@ export const GridLayout = styled.div`
   grid-template-columns: 1fr;
 `;
 export const Grid2Layout = styled.div`
+  display: -ms-grid;
   display: grid;
-  width: 99%;
+  width: 100%;
   font-size: 25px;
   font-weight: 60;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(550px, 550px) minmax(450px,450px);
 `;
 export const Grid3Layout = styled.div`
+  display: -ms-grid;
   display: grid;
-  width: 98%;
+  width: 90%;
   font-size: 25px;
   font-weight: 60;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(325px, 325px) minmax(325px,325px) minmax(325px, 325px);
 `;
 export const SSLayout = styled.div`
   display: grid;
@@ -159,4 +162,21 @@ export const CajaExito = styled.div`
   text-align:center;
   justify-content: center;
   align-items: center;
+`;
+
+export const Ha =styled.div`
+  font-size: 14px ;
+  padding: ${v.smSpacing};
+  text-align:left;
+  color: ${({ theme }) => theme.text2};
+  letter-spacing: 0.5px;
+  
+`;
+
+export const ContenedorGral  = styled.div`
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-width:1000 px;
+  
 `;

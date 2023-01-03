@@ -2,13 +2,14 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { SFform, SFoormTitle, SBbutton, GridLayout, 
+import { SFform, SFoormTitle, SBbutton, GridLayout, Ha,
         SSLayout, CajaError,CajaExito, SDdiv} from "./InfoAcademicaStyle";
 //import Sidebar from "../../components/Sidebar/SidebarSolicitante";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain,ContenedorGral } from "../../components/Layout/styles";
 import InputText from "../../components/Atoms/InputText/InputText";
 import SpinnerSmall from "../../components/Atoms/Spinner/SpinnerSmall";
 import useListas from "../../components/Atoms/Listas/Listas";
+
 
 /* Constantes */
 const urlApi = "https://gettalent-6.herokuapp.com/users/infoacademica/";
@@ -19,8 +20,8 @@ const INITIAL_STATE = {
   institucion:"",
   fecha_inicio:"",
   fecha_fin:"",
-  estatus_academico:"",
-  nivel_escolar:"",
+  estatus_academico: "",
+  nivel_escolar: "",
 };
 
 const nivel_academico = [
@@ -33,6 +34,7 @@ const nivel_academico = [
   { id: "Certificacion", nombre:"Certificación"},
   { id: "Otro", nombre:"Otro"}
 ];
+
 
 const list_estatus = [
   { id: "Finalizado", nombre:"Finalizado"},
@@ -61,6 +63,8 @@ export const InfoAcademica = ({ children }) => {
   			    Authorization: `Bearer ${token}` 
         }
       }
+
+
       
       try {
         const { data, status } = await axios.post(urlApi,{
@@ -104,11 +108,15 @@ export const InfoAcademica = ({ children }) => {
     };
 
 
-    const [nivel, SelectNivelAca] = useListas('Nivel Académico:', nivel_academico)
-    SelectNivelAca()
+
+    const [nivel, SelectNivelEscolar] = useListas('Nivel Académico:', nivel_academico)
+    SelectNivelEscolar()
 
     const [estatus, SelectEstatus ] = useListas('Estatus:', list_estatus)
     SelectEstatus()
+    console.log(estatus)
+  
+
 
     return (
             
@@ -116,10 +124,14 @@ export const InfoAcademica = ({ children }) => {
           
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+              <ContenedorGral>
               <SFoormTitle> PERFIL ACADÉMICO </SFoormTitle>
                   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
               <SSLayout>
-                <SelectNivelAca/>
+
+            
+                <SelectNivelEscolar/>
+  
                 
                 <InputText
                 label="Título / Nombre Carrera: *"
@@ -133,6 +145,7 @@ export const InfoAcademica = ({ children }) => {
                 }}
                 isRequired={true}
                 />
+                
                 <InputText
                 label="Institución: *"
                 id="institucion"
@@ -144,7 +157,10 @@ export const InfoAcademica = ({ children }) => {
                 }}
                 isRequired={true}
                 />
+
+
                 <SelectEstatus/>
+
               </SSLayout>
 
 
@@ -160,6 +176,8 @@ export const InfoAcademica = ({ children }) => {
                 }}
                 isRequired={true}
                 />
+
+
                 <InputText
                 label="Fecha término:"
                 id="fecha_fin"
@@ -170,7 +188,7 @@ export const InfoAcademica = ({ children }) => {
                   onChangeHandler(e);
                 }}
                 isRequired={false}
-                 />
+                />
               </GridLayout>
     
               {loading ? (
@@ -179,21 +197,22 @@ export const InfoAcademica = ({ children }) => {
                 <SBbutton type="submit">AÑADIR</SBbutton>
               )}
               <GridLayout>
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+              
+              <Ha> *Campos obligatorios.</Ha>
+            
               </GridLayout>
               {success &&
-                 <CajaExito>
+                <CajaExito>
                   <SDdiv>Registro Exitoso: datos guardados correctamente.</SDdiv>
                 </CajaExito>
               }
               {error &&  
-                 <CajaError>  
+                <CajaError>  
                     <SDdiv>Por favor, vuelva a intentarlo.</SDdiv>
                     <h5>Problema del Servidor: información no guardada.</h5>
-                 </CajaError>
+                </CajaError>
                 }
+                </ContenedorGral>
             </SFform>
             
       </SLayout>

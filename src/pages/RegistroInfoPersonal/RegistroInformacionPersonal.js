@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 ///import Sidebar from "../../components/Sidebar/SidebarSolicitante";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain, ContenedorGral } from "../../components/Layout/styles";
 import InputText from "../../components/Atoms/InputText/InputText";
 import SpinnerSmall from "../../components/Atoms/Spinner/SpinnerSmall";
 import useListas from "../../components/Atoms/Listas/Listas";
-import {SFform, SFoormTitle, SBbutton, 
+import {SFform, SFoormTitle, SBbutton, Ha,
   GridLayout, CajaError, SDdiv, CajaExito} from "./RegistroInformacionPersonalStyle";
+// import TarjetaVacante from "../../components/TarjetaVacante/TarjetaVacante";
 
 /* Constantes */
 const urlApi = "https://gettalent-6.herokuapp.com/users/";
@@ -48,17 +49,19 @@ export const InfoPersonal = ({ children }) => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
-    setLoading(true);
+      setLoading(true);
 
-    const token = localStorage.getItem("accesstoken");
-    if(!token)
-    return
-    const config = {
-      headers: {
-        "Content-Type": "application/json", 
-          Authorization: `Bearer ${token}` 
+      const token = localStorage.getItem("accesstoken");
+      if(!token)
+      return
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json", 
+  			  Authorization: `Bearer ${token}` 
+        }
       }
-    }
+    
     
     try {
       const { data, status } = await axios.post(urlApi,{
@@ -71,36 +74,35 @@ export const InfoPersonal = ({ children }) => {
           additional_mail:formData.additional_mail,
           date_birth: formData.date_birth,
           gender: genero,
-          marital_status:edocivil   
-        },
+          marital_status:edocivil     
+        }, 
         config
         );
-      
         
-      setLoading(false);
-      
-      if (status >= 200 && status < 300) {
-        console.log("Respuesta PERFECTO:", data);
-        setSuccess(true);
-        // const error = { message: data, status: response.status };
-        // return Promise.reject(error);
-      } 
-    } catch (error) {
-      setError("Algo salio mal :c, vuelve a intentarlo");
-      console.log(error)
-      console.error(error);
-      console.log(error?.response)
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const onChangeHandler = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+        setLoading(false);
+        console.log("data", data);
+        console.log("status", status);
+        if (status >= 200 && status < 300){
+          console.log("Respuesta PERFECTO:", data);
+          setSuccess(true);
+          // const error = { message: data, status: response.status };
+          // return Promise.reject(error);
+        } 
+      } catch (error) {
+        setError("Algo salio mal :c, vuelve a intentarlo");
+  
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    const onChangeHandler = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    };
 
     const [genero, SelectSexo] = useListas('Género:', sexos)
     SelectSexo()
@@ -113,6 +115,7 @@ export const InfoPersonal = ({ children }) => {
           
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+             < ContenedorGral>
               <SFoormTitle> INFORMACIÓN PERSONAL </SFoormTitle>
               <GridLayout>
                 <InputText
@@ -213,9 +216,7 @@ export const InfoPersonal = ({ children }) => {
               )}
               </GridLayout>
               <GridLayout>
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+              <Ha> *Campos obligatorios.</Ha>
               </GridLayout>
               {success &&
                  <CajaExito>
@@ -228,6 +229,7 @@ export const InfoPersonal = ({ children }) => {
                     <h5>Problema del Servidor: información no guardada.</h5>
                  </CajaError>
                 }
+                </ContenedorGral>
             </SFform>
             
       </SLayout>

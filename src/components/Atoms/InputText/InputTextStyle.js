@@ -8,6 +8,7 @@ export const SLlabel = styled.label`
   flex-direction: column;
   font-size: 14px;
   font-weight: 600;
+  color: ${({ theme }) => theme.text};
   margin-bottom: calc(${v.smSpacing} / 4);
   @media screen and (max-width: ${sizeQuery.LaptopL}) {
     width: 70%;
@@ -21,4 +22,7 @@ export const SIinput = styled.input`
   padding: ${v.smSpacing};
   font-size: 15px;
   border-radius: ${v.borderRadius};
+  @media screen and (max-width: ${sizeQuery.LaptopL}) {
+    width: 100%;
+  }
 `;

@@ -1,22 +1,9 @@
 import styled from "styled-components";
-import { sizeQuery } from "../../styles/variables";
-import { btnReset, v } from "../../styles/variables";
-
-export const PrLayout = styled.div`
-  width: 100%;
-  background: ${({ theme }) => theme.bg2};
-  border-radius: ${v.borderRadius};
-  display: flex;
-  height: auto,
-  width: auto,
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-`;
+import { sizeQuery, btnReset, v } from "../../styles/variables";
 
 export const GridLayout = styled.div`
   display: grid;
-  width: 100%;
+  width: 80%;
   font-size: 25px;
   font-weight: 60;
   grid-template-columns: 1fr ;
@@ -26,33 +13,10 @@ export const SFoormTitle = styled.div`
   margin-bottom: 3%;
   font-size: 25px;
   font-weight: 600;
+  color:${({ theme }) => theme.text};
 `;
 
-export const SLlaabel = styled.label`
-  min-width: 320px;
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  margin-left: 0px;
-  column-count: auto;
-  margin-bottom: calc(${v.smSpacing} / 4);
-  /* se creo una condicional donde si quieres que el texto de SLlabel ocupe otra 
-     direccion puedas colocarselo con el custom prop alignText, sino existe ese prop
-     por default la orientacion del texto sera a la izquierda */
-  text-align: ${(props) => (props.alignText ? props.alignText : "left")};
-  inline-size: min-content;
-  @media screen and (max-width: ${sizeQuery.LaptopL}) {
-    width: 80%;
-  }
-`;
-export const SIinput = styled.input`
-  outline: none;
-  border: 1px solid ${({ theme }) => theme.textFade};
-  width: 100%;
-  padding: ${v.smSpacing};
-  font-size: 15px;
-  border-radius: ${v.borderRadius};
-`;
+
 export const SFform = styled.form`
   width: 100%;
   background: ${({ theme }) => theme.bg2};
@@ -118,3 +82,15 @@ export const CajaExito = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const Ha =styled.div`
+  font-size: 14px ;
+  padding: ${v.smSpacing};
+  text-align:left;
+  color: ${({ theme }) => theme.text2};
+  letter-spacing: 0.5px;
+  @media screen and (max-width: ${sizeQuery.Tablet}) {
+    width: 90%;
+  }
+`;
+

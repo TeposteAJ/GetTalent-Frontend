@@ -31,7 +31,7 @@ import { MdLogout,MdOutlineSchool, MdOutlineOndemandVideo} from "react-icons/md"
 import { ThemeContext } from "./../../App";
 import { useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const SidebarS = () => {
     const searchRef = useRef(null);
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -134,6 +134,7 @@ const linksArray = [
         to: "intereses",
         notification: 0,
     },
+
     {
         label: "Video Presentación",
         icon: <MdOutlineOndemandVideo/>,
@@ -143,9 +144,10 @@ const linksArray = [
     {
         label: "Mis Postulaciones",
         icon: < ImFilesEmpty  />,
-        to: "aplicantes",
+        to: "postulaciones",
         notification: 0,
     },
+
     {
         label: "Vacantes",
         icon: < IoMdMegaphone   />,
@@ -168,4 +170,4 @@ const secondaryLinksArray = [
     },
 ];
 
-export default Sidebar;
+export default SidebarS;

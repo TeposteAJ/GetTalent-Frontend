@@ -1,9 +1,9 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
-import { SFform, SFoormTitle, SBbutton,
+import { SFform, SFoormTitle, SBbutton, Ha,
           GridLayout,SDdiv,CajaError,CajaExito} from "./PerfilEmpresaStyle";
 //import Sidebar from "../../components/Sidebar/SidebarEmpresa";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain, ContenedorGral} from "../../components/Layout/styles";
 import { useState } from "react";
 import axios from "axios";
 import InputText from "../../components/Atoms/InputText/InputText";
@@ -15,34 +15,36 @@ const urlApi = "https://gettalent-6.herokuapp.com/empresa/informacion/";
 
 const INITIAL_STATE = {
   user_id:"",
-  empresa:"",
+  name:"",
   description:"",
   logo:""
 };
 
-
-
 export const PerfilEmpresa = ({ children }) => {
-  const [formData, setFormData] = useState(INITIAL_STATE);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = React.useState(false);
+    const [formData, setFormData] = useState(INITIAL_STATE);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = React.useState(false);
+  
+    const onSubmitHandler = async (event) => {
+      event.preventDefault();
+  
+      setLoading(true);
 
-  const onSubmitHandler = async (event) => {
-    event.preventDefault();
+      const token = localStorage.getItem("accesstoken");
+      console.log('ACCESSTOKEN', token)
+      console.log('NO TOKEN')
+      if(!token)
+      return
+      console.log('NO SE OBTUVO TOKEN')
 
-    setLoading(true);
-
-    const token = localStorage.getItem("accesstoken");
-    console.log(token);
-    if(!token)
-    return
-    const config = {
-      headers: {
-        "Content-Type": "application/json", 
-          Authorization: `Bearer ${token}` 
+      const config = {
+        headers: {
+          "Content-Type": "application/json", 
+  			    Authorization: `Bearer ${token}` 
+        }
       }
-    }
+    
     try {
       const { data, status } = await axios.post(urlApi,{
         "user_id":Number(localStorage.getItem('id')),
@@ -85,6 +87,7 @@ export const PerfilEmpresa = ({ children }) => {
         
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+              <ContenedorGral>
               <SFoormTitle> INFORMACIÓN EMPLEADOR </SFoormTitle>
               <GridLayout>
                 <InputText
@@ -138,9 +141,7 @@ export const PerfilEmpresa = ({ children }) => {
                 <SBbutton type="submit">GUARDAR</SBbutton>
               )}
               <GridLayout>
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+              <Ha> *Campos obligatorios.</Ha>
               </GridLayout>
               {success &&
                  <CajaExito>
@@ -153,6 +154,7 @@ export const PerfilEmpresa = ({ children }) => {
                     <h5>Problema del Servidor: información no guardada.</h5>
                  </CajaError>
                 }
+                </ContenedorGral>
             </SFform>
             
       </SLayout>

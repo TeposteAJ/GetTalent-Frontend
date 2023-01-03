@@ -14,12 +14,12 @@ export const SFixedContainer = styled.div`
     margin: 2rem;
     float: right;
     width: 400px;
-     margin: 7em;
-   padding: 1em;
-  background-color: #FFF6FD;
-  border-radius: 0.5em;
-   font-size: 22px;
-   /* background-position:200%; */
+    margin: 7em;
+    padding: 1em;
+    background-color: #FFF6FD;
+    border-radius: 0.5em;
+    font-size: 22px;
+    /* background-position:200%; */
     
 `;
 

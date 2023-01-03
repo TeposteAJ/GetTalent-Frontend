@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-//import Sidebar from "../../components/Sidebar/SidebarSolicitante";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain,ContenedorGral } from "../../components/Layout/styles";
 import SpinnerSmall from "../../components/Atoms/Spinner/SpinnerSmall";
 import useListas from "../../components/Atoms/Listas/Listas";
 
-import {SFform, SFoormTitle, SBbutton, 
+import {SFform, SFoormTitle, SBbutton, Ha,
   GridLayout, CajaError, SDdiv, CajaExito} from "./InteresesStyle";
 
 /* Constantes */
@@ -119,6 +118,7 @@ export const Interes = ({ children }) => {
           
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+            <ContenedorGral>
               <SFoormTitle> INTERESES LABORALES </SFoormTitle>
               <GridLayout>
 
@@ -144,11 +144,11 @@ export const Interes = ({ children }) => {
                         <h5>Problema del Servidor: información no guardada.</h5>
                     </CajaError>
                     }
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+                 <Ha size="2.5"> *Campos obligatorios.</Ha>
+              
+              </ContenedorGral>
             </SFform>
-            
+             
       </SLayout>
       );
     };

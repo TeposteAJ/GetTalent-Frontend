@@ -1,47 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {TarjetaVacante, Columnas, Columna, ContenedorBoton, BotonVacante, Span} from "./TarjetaVacanteSolicitanteStyle";
+import {TarjetaVacante, Columnas, ContenedorBoton, BotonVacante, Span, /* LinkBoton */} from "./TarjetaVacanteSolicitanteStyle";
 
 export const TarjetaVacanteSolicitante = ({vacante}) => {
 
-        const { name, estado, area, tipo_trabajo, modalidad, sueldo, /* descripcion, requisitos */ vacante_id } = vacante
+    const { name, estado, area, tipo_trabajo, modalidad, sueldo,  vacante_id } = vacante
 
     
 
 
     return (
-        <TarjetaVacante>
+    <TarjetaVacante>
         <Columnas>
-            <Columna>
-                <p><Span>Vacante: </Span> {name}</p>
-                <p><Span>Tipo: </Span>{tipo_trabajo}</p>
-                <p><Span>Modalidad: </Span>{modalidad}</p>
-                {/* <p><Span>Descripción: </Span>   {descripcion}</p>
-                <p><Span>Requisitos: </Span>  {requisitos}</p> */}
-
-            </Columna>
+            <div>
+                <p><Span>Vacante: <br/></Span> {name}</p>
+                <p><Span>Tipo: <br/></Span>{tipo_trabajo}</p>
+            </div>
             
-        
-            
-            <Columna>
-                <p><Span>Area: </Span> {area}</p>
-                <p><Span>Ubicación: </Span>{estado}</p>
-                <p><Span>Sueldo: </Span>${sueldo}</p>
-            </Columna>
+            <div>
+                <p><Span>Area: <br/></Span> {area}</p>
+                <p><Span>Modalidad: <br/></Span>{modalidad}</p>
+            </div>
 
-
-
-        </Columnas>
+            <div>
+                <p><Span>Ubicación: <br/></Span>{estado}</p>
+                <p><Span>Sueldo: <br/></Span>${sueldo}</p>
+            </div>
 
             <ContenedorBoton>
-                <BotonVacante>
-                    <Link to={`${vacante_id}`}>
-                        Ver Vacante
-                    </Link>
-                    </BotonVacante>
+                <BotonVacante >
+                        <Link to={`${vacante_id}`} >
+                            Ver Vacante 
+                        </Link>
+                </BotonVacante>
             </ContenedorBoton>
-        
-
+        </Columnas>
         </TarjetaVacante>
     )
     }

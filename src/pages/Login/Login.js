@@ -74,8 +74,10 @@ export const Login = () => {
     localStorage.setItem("refreshtoken", data.tokens.refresh);
     localStorage.setItem("role", ParseRol(data.is_empleador));
     localStorage.setItem("id", Number(data.id));
+    // localStorage.setItem("id", data.id);
   };
 
+  // console.log(localStorage);
   //console.log(localStorage);
 
   const saveInAuthContext = () => {
@@ -124,7 +126,7 @@ export const Login = () => {
           ) : (
             <SBbutton type="submit">ENTRAR</SBbutton>
           )}
-           <Link to="/register"> Registrate </Link>
+          <Link to="/register"> Registrate </Link>
           <Link to="/recoverypass"> Olvide contraseña </Link>
         </SFform>
       </SFixedContainer>

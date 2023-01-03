@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import  {TarjetaVacanteEmpresa } from '../../components/TarjetaVacanteEmpresa/TarjetaVacanteEmpresa'
-import { ContenedorVacantes } from './VacantesEmpresaStyle'
+import { ContenedorVacantes, SFoormTitle, P1 } from './VacantesEmpresaStyle'
 
 
 export const ListadoVacantes = () => {
@@ -22,12 +22,14 @@ export const ListadoVacantes = () => {
                     Authorization: `Bearer ${token}` 
                 }
             }
-            const  {data} = await axios('https://gettalent-6.herokuapp.com/vacantes/', config)
-            setVacantes(data.vacantes)
-            console.log(data)
+            const  {data} = await axios('https://gettalent-6.herokuapp.com/empresa/informacion/', config)
+            setVacantes(data.data.Vacantes)
+            console.log(data, 'DATA')
+            console.log(data.data.Vacantes)
             
         } catch(error) {
-			console.log('NO SE PUDO OBTENER LAS VACANTES', error?.response)
+            
+			console.log('NO SE PUDO OBTENER LAS VACANTES PUBLICADAS', error?.response)
         }
 
         };
@@ -41,7 +43,7 @@ export const ListadoVacantes = () => {
 
     return (
         <>
-            <h5>Vacantes Publicadas</h5>
+            <SFoormTitle>Vacantes Publicadas</SFoormTitle>
 
         <ContenedorVacantes>
 
@@ -49,12 +51,12 @@ export const ListadoVacantes = () => {
             {vacantes.length ? 
                 vacantes.map( vacante =>(
                 <TarjetaVacanteEmpresa
-                key={vacante.vacante_id}
+                // key={vacante.vacante_id}
                 vacante={vacante}
             />
             ))
 
-            : <p>NO TIENES VACANTES PUBLICADAS</p>
+            : <P1>NO TIENES VACANTES PUBLICADAS</P1>
         
         }
 

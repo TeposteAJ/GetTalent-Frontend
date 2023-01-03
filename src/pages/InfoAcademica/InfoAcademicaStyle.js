@@ -24,6 +24,7 @@ export const SFoormTitle = styled.div`
   margin-bottom: 3%;
   font-size: 25px;
   font-weight: 600;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const SLlaabel = styled.label`
@@ -119,3 +120,11 @@ export const CajaExito = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const Ha =styled.div`
+  font-size: 14px ;
+  padding: ${v.smSpacing};
+  text-align:left;
+  color: ${({ theme }) => theme.text2};
+  letter-spacing: 0.5px;
+  
+`

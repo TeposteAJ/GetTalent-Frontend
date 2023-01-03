@@ -26,10 +26,12 @@ export const SFoormTitle = styled.div`
   margin-bottom: 3%;
   font-size: 25px;
   font-weight: 600;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const SLlaabel = styled.label`
-  min-width: 320px;
+  min-width: 450px;
+  color: ${({ theme }) => theme.text};
   display: block;
   font-size: 15px;
   font-weight: 600;
@@ -39,7 +41,7 @@ export const SLlaabel = styled.label`
      direccion puedas colocarselo con el custom prop alignText, sino existe ese prop
      por default la orientacion del texto sera a la izquierda */
   text-align: ${(props) => (props.alignText ? props.alignText : "left")};
-  inline-size: min-content;
+  
   @media screen and (max-width: ${sizeQuery.LaptopL}) {
     width: 70%;
   }
@@ -50,12 +52,13 @@ export const SLlabel = styled.label`
   font-size: 18px;
   font-weight: 600;
   margin-left: 0px;
+  color: ${({ theme }) => theme.text};
   margin-bottom: calc(${v.smSpacing} / 1);
   /* se creo una condicional donde si quieres que el texto de SLlabel ocupe otra 
      direccion puedas colocarselo con el custom prop alignText, sino existe ese prop
      por default la orientacion del texto sera a la izquierda */
-  text-align: ${(props) => (props.alignText ? props.alignText : "center")};
-  inline-size: min-content;
+  text-align: ${(props) => (props.alignText ? props.alignText : "left")};
+ 
   @media screen and (max-width: ${sizeQuery.LaptopL}) {
     width: 70%;
   }
@@ -132,4 +135,26 @@ export const CajaExito = styled.div`
   text-align:center;
   justify-content: center;
   align-items: center;
+`;
+export const Ha =styled.div`
+  font-size: 14px ;
+  padding: ${v.smSpacing};
+  text-align:left;
+  color: ${({ theme }) => theme.text2};
+  letter-spacing: 0.5px;
+  
+`
+
+export const ContenedorGral  = styled.div`
+    display: grid;
+    min-width:100px;
+    width: 80%;
+    justify-content: left;
+    align-items: left;
+    background-color:${({ theme }) => theme.bg2};
+    @media screen and (max-width: ${sizeQuery.LaptopL}) {
+        width: 80%;
+        justify-content: left;
+        align-items: left;
+  }
 `;

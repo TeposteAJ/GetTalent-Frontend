@@ -16,7 +16,6 @@ import Toast from "../../components/Atoms/Toast/Toast";
 // import { useModal } from "../../Hooks/useModal";
 import Token from "./Token/Token";
 
-
 const urlApi = "https://gettalent-6.herokuapp.com/recovery/password-email/";
 //const urlApi = "http://localhost:8000/recovery/password-email/";
 const INITIAL_STATE = {

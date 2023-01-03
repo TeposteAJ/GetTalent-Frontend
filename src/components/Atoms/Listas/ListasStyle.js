@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { sizeQuery, v } from "../../../styles/variables";
 
-
 export const SLlabel = styled.label`
   margin: 1em;
   min-width: 320px;
@@ -9,42 +8,37 @@ export const SLlabel = styled.label`
   flex-direction: column;
   font-size: 14px;
   font-weight: 600;
-  
+  color: ${({ theme }) => theme.text};
   margin-bottom: calc(${v.smSpacing} / 4);
   @media screen and (max-width: ${sizeQuery.LaptopL}) {
-    width: 90%;
+    width: 70%;
   }
 `;
 
-
-
-
 export const SLSelect = styled.select`
-     
-     width: 100%;
+     outline: none;
+     border: 1px solid ${({ theme }) => theme.textFade};
+     @media screen and (max-width: ${sizeQuery.LaptopL}) {
+      width: 100%;
+     }
+     padding: ${v.smSpacing};
      font-size: 15px;
-     padding: 14 px;
      border-radius: ${v.borderRadius};
-     margin-bottom: calc(${v.smSpacing} / 4)
-     display: flex;
-     flex-direction: column;
      background-color: White;
-     border: 2px solid black;
-     border-color: black;
      cursor: pointer; 
-     
+     display: flex;
+    
      option {
-      background: #d9e9f7bd;
+      background: #d8dfff;
       color: black;
       display: flex;
       white-space: pre;
-      min-height: 20px;
+      min-height: 30px;
       padding: 0px 2px 1px;
+      
     }
     
-    &.Select-items div:hover, .same-as-selected {
-      background-color: pink;
-    }
+
 `;
 // /*style items (options):*/
 // .select-items {

@@ -1,9 +1,9 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
-import { SFform, SFoormTitle, SBbutton,SLlaabel,SLlabel,
-          GridLayout,SDdiv,CajaError,CajaExito} from "./VideoSolicitanteStyle";
+import { SFform, SFoormTitle, SBbutton,SLlaabel,SLlabel,ContenedorGral,
+          GridLayout,SDdiv,CajaError,CajaExito, Ha} from "./VideoSolicitanteStyle";
 //import Sidebar from "../../components/Sidebar/SidebarEmpresa";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain} from "../../components/Layout/styles";
 import { useState } from "react";
 import axios from "axios";
 import InputText from "../../components/Atoms/InputText/InputText";
@@ -78,6 +78,7 @@ export const VideoSolicitante = ({ children }) => {
         
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+              <ContenedorGral>
               <SFoormTitle> VIDEO PRESENTACIÓN </SFoormTitle>
               <SLlabel>Cuentanos sobre tí.</SLlabel>
               <SLlaabel>
@@ -97,9 +98,8 @@ export const VideoSolicitante = ({ children }) => {
                 }}
                 isRequired={true}
               />
-              <div align="right">
-                 <font size="2"> Compartenos tu logo por medio de un enlace publico.</font>
-              </div>
+              <Ha> Compartenos tu logo por medio de un enlace publico.</Ha>
+             
               </GridLayout>    
               {loading ? (
                 <SpinnerSmall />
@@ -107,9 +107,9 @@ export const VideoSolicitante = ({ children }) => {
                 <SBbutton type="submit">GUARDAR</SBbutton>
               )}
               <GridLayout>
-              <div text-align="right">
-                 <font size="2.5"> *Campos obligatorios.</font>
-              </div>
+        
+              <Ha> *Campos obligatorios.</Ha>
+              
               </GridLayout>
               {success &&
                  <CajaExito>
@@ -122,7 +122,9 @@ export const VideoSolicitante = ({ children }) => {
                     <h5>Problema del Servidor: información no guardada.</h5>
                  </CajaError>
                 }
+              </ContenedorGral>
             </SFform>
+            
             
       </SLayout>
       );

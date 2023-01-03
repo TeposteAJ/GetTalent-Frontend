@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {
   SFixedContainer,
   SIimg,
@@ -63,16 +63,16 @@ export const Logout = () => {
       <SFixedContainer>
         <SIimg />
         <SFform onSubmit={onSubmitHandler}>
-          <SFoormTitle> . . .</SFoormTitle>
+          <SFoormTitle> ¿Desea cerrar sesión?</SFoormTitle>
 
           {error && <Toast color="error">{error}</Toast>}
 
           {loading ? (
             <SpinnerSmall />
           ) : (
-            <SBbutton type="submit">Cerrar Sesión</SBbutton>
+            <SBbutton type="submit">Aceptar</SBbutton>
           )}
-           <Link to="/"> Volver </Link>
+           <a href="javascript:history.back()">No, Volver</a>
         </SFform>
       </SFixedContainer>
     </>

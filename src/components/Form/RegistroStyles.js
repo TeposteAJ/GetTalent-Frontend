@@ -6,6 +6,7 @@ import background from "../../assets/ilustration/new.jpg";
 export const SFoormTitle = styled.div`
   font-size: 25px;
   font-weight: 600;
+  color:${({ theme }) => theme.text};
 `;
 export const SLlabel = styled.label`
   min-width: 320px;
@@ -14,6 +15,7 @@ export const SLlabel = styled.label`
   font-size: 14px;
   font-weight: 600;
   margin-left: 0px;
+  color:${({ theme }) => theme.text};
   margin-bottom: calc(${v.smSpacing} / 4);
   @media screen and (max-width: ${sizeQuery.LaptopL}) {
     width: 70%;
@@ -25,6 +27,7 @@ export const SLlaabel = styled.label`
   font-size: 11px;
   font-weight: 600;
   margin-left: 0px;
+  color:${({ theme }) => theme.text};
   margin-bottom: calc(${v.smSpacing} / 4);
   /* se creo una condicional donde si quieres que el texto de SLlabel ocupe otra 
      direccion puedas colocarselo con el custom prop alignText, sino existe ese prop

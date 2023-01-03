@@ -1,56 +1,23 @@
 import styled from "styled-components";
-import { sizeQuery } from "../../styles/variables";
+//import { sizeQuery } from "../../styles/variables";
 import { btnReset, v } from "../../styles/variables";
-
 
 export const GridLayout = styled.div`
   display: grid;
   width: 100%;
   font-size: 25px;
   font-weight: 60;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr ;
 `;
-
-export const SSLayout = styled.div`
-  display: grid;
-  width: 100%;
-  font-size: 25px;
-  font-weight: 60;
-  grid-template-columns: 1fr;
-`;
-
 
 export const SFoormTitle = styled.div`
   margin-bottom: 3%;
   font-size: 25px;
   font-weight: 600;
+  color: ${({ theme }) => theme.text};
 `;
 
-export const SLlaabel = styled.label`
-  min-width: 320px;
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  margin-left: 0px;
-  column-count: auto;
-  margin-bottom: calc(${v.smSpacing} / 4);
-  /* se creo una condicional donde si quieres que el texto de SLlabel ocupe otra 
-     direccion puedas colocarselo con el custom prop alignText, sino existe ese prop
-     por default la orientacion del texto sera a la izquierda */
-  text-align: ${(props) => (props.alignText ? props.alignText : "left")};
-  inline-size: min-content;
-  @media screen and (max-width: ${sizeQuery.LaptopL}) {
-    width: 70%;
-  }
-`;
-export const SIinput = styled.input`
-  outline: none;
-  border: 1px solid ${({ theme }) => theme.textFade};
-  width: 100%;
-  padding: ${v.smSpacing};
-  font-size: 15px;
-  border-radius: ${v.borderRadius};
-`;
+
 export const SFform = styled.form`
   width: 100%;
   background: ${({ theme }) => theme.bg2};
@@ -60,14 +27,6 @@ export const SFform = styled.form`
   justify-content: center;
   align-items: center;
   padding: 2rem;
-`;
-export const SDdiv = styled.div`
-  :first-of-type {
-    margin-top: ${v.mdSpacing};
-  }
-  :not(:last-of-type) {
-    margin-bottom: ${v.smSpacing};
-  }
 `;
 export const SBbutton = styled.button`
   ${btnReset};
@@ -81,16 +40,20 @@ export const SBbutton = styled.button`
   color: white;
   justify-content: center;
   border-radius: ${v.borderRadius};
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: ${v.mdSpacing};
   cursor: pointer;
 `;
 export const Link = styled.link`
 background-color: pink;
 `;
+export const SDdiv = styled.div`
+  :first-of-type {
+    margin-top: calc(${v.smSpacing} / 4);
+  }
+`;
 export const CajaError = styled.div`
-  width: 47%;
-  font-size: 18px;
+  width: 60%;
+  font-size: 20px;
   padding: ${v.smSpacing};
   border: 2px solid #ff0080;
   border-left:15px solid #ff0080;
@@ -105,8 +68,8 @@ export const CajaError = styled.div`
   align-items: center;
 `;
 export const CajaExito = styled.div`
-  width: 47%;
-  font-size: 18px;
+  width: 60%;
+  font-size: 20px;
   padding: ${v.smSpacing};
   border: 2px solid green;
   border-left:15px solid green;
@@ -119,4 +82,13 @@ export const CajaExito = styled.div`
   text-align:center;
   justify-content: center;
   align-items: center;
+`;
+
+export const Ha =styled.div`
+  font-size: 14px ;
+  padding: ${v.smSpacing};
+  text-align:left;
+  color: ${({ theme }) => theme.text2};
+  letter-spacing: 0.5px;
+  
 `;

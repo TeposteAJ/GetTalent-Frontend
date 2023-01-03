@@ -1,14 +1,13 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
-import { SFform, SFoormTitle, SBbutton,
+import { SFform, SFoormTitle, SBbutton,Ha,
           GridLayout,SDdiv,CajaError,CajaExito} from "./ChangePassStyle";
-//import Sidebar from "../../components/Sidebar/SidebarEmpresa";
-import { SLayout, SMain } from "../../components/Layout/styles";
+import { SLayout, SMain,ContenedorGral } from "../../components/Layout/styles";
 import { useState } from "react";
 import axios from "axios";
 import InputText from "../../components/Atoms/InputText/InputText";
 import SpinnerSmall from "../../components/Atoms/Spinner/SpinnerSmall";
-//import ToggleInput from "../../components/Form/ToggleInput";
+
 
 /* Constantes */
 const urlApi = "https://gettalent-6.herokuapp.com/change-password/";
@@ -85,9 +84,10 @@ export const ChangePass= ({ children }) => {
         
           <SMain>{children}</SMain>
           <SFform onSubmit={onSubmitHandler}>
+          <ContenedorGral>
               <SFoormTitle> CAMBIAR CONTRASEÑA</SFoormTitle>
               <GridLayout>
-                
+              
                 <InputText
                 label="Nueva Contraseña:"
                 id="new_password"
@@ -123,14 +123,11 @@ export const ChangePass= ({ children }) => {
                 <SBbutton type="submit">GUARDAR</SBbutton>
               )}
               <GridLayout>
-             
-              <div align="left">
-                 <font size="2"> 
+                 <Ha>  
                  *La contraseña debe contener un mínimo de 6 y un máximo de 20
                    caracteres alfanuméricos; al menos una letra mayúscula, minuscula, numeros y un caracter
                    especial ~!-@#$%^+=&*.
-                 </font>
-              </div>
+                 </Ha >
               </GridLayout>
               {success &&
                  <CajaExito>
@@ -143,6 +140,7 @@ export const ChangePass= ({ children }) => {
                     <h5>Problema del Servidor: información no guardada.</h5>
                  </CajaError>
                 }
+            </ContenedorGral>
             </SFform>
             
       </SLayout>
